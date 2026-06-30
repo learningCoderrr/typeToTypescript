@@ -2,7 +2,7 @@
 
 ## What is Typescript
 
-Typescript is a tooling as well as programming language.It is a subset of javascript adding some features into it for maintainability,scalability,easy to understand and many more ...
+Typescript is a tooling as well as programming language.It is a Superset of javascript adding some features into it for maintainability,scalability,easy to understand and many more ...
 
 ## Some info about Vs code editor how it uses ts internally and other language services.
 
