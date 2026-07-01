@@ -16,3 +16,24 @@ When ever new service started then a new process will started by the code editor
 
 By using this comment we can use those features on js file on development
 `//@ts-check`
+
+## Running TS file in nodejs
+
+We can run **typescript file** on nodejs interpreter on latest update of nodejs.
+
+> Nodejs **strip** out the additional keywords which is present in JS.
+
+## Adding types in TS
+
+We can provide a specific types in the TS code to store only a specific value.
+
+```ts
+let userFullName: string = "Mohan Lal";
+console.log(userFullName);
+```
+
+the string keyword used after colon of the variable name that we call **types** in TS.
+The way where we adding types is know as **type annotation**.
+
+![code infer](image.png)
+the screenshot u where viewing that is know as **types infer** were TS automatically infer the type and set the type to that number or any thing according to the value datatype.
