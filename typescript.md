@@ -93,7 +93,7 @@ npm install typescript
 tsc script.ts app.mts server.cts
 ```
 
-To compile all files at once then we use `tsconfig.json` file.It's not matter the `file empty or have some code` it only wants this file.
+To compile all files at once then we use `tsconfig.json` file.It's not matter the `file empty or having configuration json` it only wants the file.
 
 #### If wanted to create `tsconfig.json` using `tsc cmd` (Optional)
 
