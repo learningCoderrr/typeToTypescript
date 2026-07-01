@@ -46,3 +46,65 @@ console.log(userFullName);
 ![code infer](image.png)
 
 > The pic is showing the term know as `types infer`. TS automatically infer(implicitly) acquire the type and set the type to the variable according to the value datatype.
+
+## Compiling TS to JS with TS compiler
+
+To convert TS code to JS code we need `tsc` compiler.
+
+### Installing `TSC` compiler
+
+There so many ways to install it on various location in our workplace(**System**).
+
+##### Global Package
+
+To run ts compiler use `tsc` after installing compiler .
+
+```bash
+npm install -g typescript
+```
+
+##### Local Package
+
+To start compiler use `npx tsc` after installation of typescript compiler.
+
+There is two way's to install the local package:-
+
+1. Using Dev dependency
+
+- ```bash
+    npm install --save-dev typescript
+  ```
+
+- ```bash
+    npm install -D typescript
+  ```
+
+2. Without Dev dependency
+
+```bash
+npm install typescript
+```
+
+### How to use `tsc`
+
+> To compile a `TS` to `JS` we use a cmd which known as `tsc`.`tsc cmd` needs file path to compile those file into JS.
+
+```bash
+tsc script.ts app.mts server.cts
+```
+
+To compile all files at once then we use `tsconfig.json` file.It's not matter the `file empty or have some code` it only wants this file.
+
+#### If wanted to create `tsconfig.json` using `tsc cmd` (Optional)
+
+For global binary package
+
+```bash
+tsc --init
+```
+
+For local binary package
+
+```bash
+npx tsc --init
+```
