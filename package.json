@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "version": "tsc --version",
+    "init": "tsc init",
+    "watch": "tsc --watch",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
