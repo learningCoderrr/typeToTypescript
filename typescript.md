@@ -2,11 +2,11 @@
 
 ## What is Typescript
 
-Typescript is a **tooling** as well as programming language.It is a **Superset** of javascript adding some features into it for maintainability,scalability,easy to understand and many more ...
+Typescript is a `tooling` as well as programming language.It is a `Superset` of javascript adding some features into it for maintainability,scalability,easy to understand and many more ...
 
 ## Some info about Vs code editor how it uses ts internally and other language services.
 
-Vs code editor uses TS,HTML,CSS etc... language services internally which is preinstalled on it.If wanted a different **language service** then we install it to use those language service for c,c++,java,php etc...
+Vs code editor uses TS,HTML,CSS etc... language services internally which is preinstalled on it.If wanted a different `language service` then we install it to use those language service for c,c++,java,php etc...
 
 When ever we hover or type the syntax then according to the service it starts the service for suggestion and brief info or docs links.
 
@@ -26,9 +26,9 @@ console.log(isNight);
 
 ## Running TS file in nodejs
 
-We can run **typescript file** on nodejs interpreter on latest update of nodejs.
+We can run `typescript file` on nodejs interpreter on latest update of nodejs.
 
-> Nodejs **strip out** the additional keywords which is present in TS to make it **vanilla JS to run**.
+> Nodejs `strip out` the additional keywords which is present in TS to make it `vanilla JS to run`.
 
 ## Adding types in TS
 
@@ -39,10 +39,10 @@ let userFullName: string = "Mohan Lal";
 console.log(userFullName);
 ```
 
-> The **string keyword** used after colon that's we call **types** in TS.
-> The way where we adding types is know as **type annotation**.
-> **Explicitly** giving types is known as `type annotation`.
+> The `string keyword` used after colon that's we call `types` in TS.
+> The way where we adding types is know as `type annotation`.
+> `Explicitly` giving types is known as `type annotation`.
 
 ![code infer](image.png)
 
-> The pic is showing the term know as **types infer**. TS automatically infer(implicitly) acquire the type and set the type to the variable according to the value datatype.
+> The pic is showing the term know as `types infer`. TS automatically infer(implicitly) acquire the type and set the type to the variable according to the value datatype.
