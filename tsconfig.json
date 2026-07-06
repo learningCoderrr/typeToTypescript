@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "removeComments": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "noEmitOnError": true
+  }
+}

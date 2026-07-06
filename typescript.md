@@ -93,7 +93,7 @@ npm install typescript
 tsc script.ts app.mts server.cts
 ```
 
-To compile all files at once then we use `tsconfig.json` file.It's not matter the `file empty or having configuration json` it only wants the file.
+To compile all files at once we needs `tsconfig.json` file .It's not matter the `file empty or having configuration` file is needed.
 
 #### If wanted to create `tsconfig.json` using `tsc cmd` (Optional)
 
@@ -107,4 +107,20 @@ For local binary package
 
 ```bash
 npx tsc --init
+```
+
+## Configuring tsconfig.json for Compiling TypeScript to JavaScript
+
+When compiling TypeScript into JavaScript, we can configure the `tsconfig.json` file, and both `tsc` and the TypeScript language service will use it — the compilation will behave according to the configuration we set.
+
+```json
+{
+  "compiler-option": {
+    "target": "es2017", // Sets the version of JavaScript the TypeScript code is compiled into.
+    "onEmitOnError": true, // If true => when the TypeScript code has some error, it will not output JavaScript.
+    "removeComments": true, // If true => when TypeScript has some comments and it is compiled into JavaScript, all comments will be removed.
+    "rootDir": "./src", // The directory containing all TS files.
+    "outDir": "dist" // The directory for the JavaScript files after compiling into JS.
+  }
+}
 ```
