@@ -1,2 +1,3 @@
-let stat = "pending";
-console.log(stat);
+function hello(params: string) {
+  console.log(params);
+}

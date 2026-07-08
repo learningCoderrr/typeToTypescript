@@ -2,8 +2,9 @@
   "compilerOptions": {
     "target": "es2019",
     "removeComments": true,
+    "noEmitOnError": true,
     "rootDir": "./src",
     "outDir": "./dist",
-    "noEmitOnError": true
+    "sourceMap": true
   }
 }

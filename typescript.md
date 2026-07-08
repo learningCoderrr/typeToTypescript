@@ -124,3 +124,62 @@ When compiling TypeScript into JavaScript, we can configure the `tsconfig.json` 
   }
 }
 ```
+
+## Source Maps
+
+## The Problem
+
+When we ship JavaScript to production, we usually **minify** and **uglify** it first:
+
+> **Minify** = code-optimize,remove all extra spaces, line breaks, and comments to make the file smaller.
+> **Uglify** = also shorten variable/function names (like `getUserData` becomes `a`) to make it even smaller.
+
+The result: your whole file might turn into one giant, unreadable line of code.
+
+**The problem:** if something breaks in production and you open DevTools to debug it, all you see is this messy, unreadable code. You can't tell what's actually going wrong.
+
+## The Solution: Source Maps
+
+Think of a source map like a **translator** sitting between your messy production code and your original clean code.
+
+It's a separate file that says: _"this position in the ugly code = this position in the original code."_
+
+So when you open DevTools, instead of seeing the ugly file, you see your **original, clean source code** — even though the browser is really running the ugly version behind the scenes.
+
+Under the hood, source maps store all these position-mappings using something called **VLQ (Variable-Length Quantity)** — just a compact way of encoding numbers so the map file itself doesn't become huge.
+
+## How a Source Map Gets Loaded
+
+**Option 1 — Manually:**
+
+1. Open DevTools
+2. Go to the Sources panel
+3. Right-click the ugly file
+4. Point it to the `.map` file's URL
+
+**Option 2 — Automatically (the common way):**
+
+Add this comment as the very last line of your minified file:
+
+```js
+//# sourceMappingURL=urlOfSourceMap.map
+```
+
+If DevTools is open, it sees this comment and automatically loads the map + original files for you. If DevTools is closed, nothing happens — the map is simply never fetched.
+
+## ⚠️ Important Warning
+
+**Never expose source maps in public production apps.** Only use them:
+
+- Behind a login/auth wall, or
+- In development only before shipping.
+
+Why? Because a source map can let anyone see your original code.
+
+## How Someone Could Steal Your Code Using a Public Source Map
+
+1. Someone finds your `.map` file (either through the comment, or by guessing the URL).
+2. Inside that file (it's just JSON), there's a `sources` field — this lists paths to your original files. There's also often a `sourcesContent` field that contains your **actual original code**, just sitting there in plain text.
+3. DevTools reads this and rebuilds your original files right there in the Sources tab.
+
+**Result:** your real, readable source code is now visible to anyone —
