@@ -120,7 +120,8 @@ When compiling TypeScript into JavaScript, we can configure the `tsconfig.json` 
     "onEmitOnError": true, // If true => when the TypeScript code has some error, it will not output JavaScript.
     "removeComments": true, // If true => when TypeScript has some comments and it is compiled into JavaScript, all comments will be removed.
     "rootDir": "./src", // The directory containing all TS files.
-    "outDir": "dist" // The directory for the JavaScript files after compiling into JS.
+    "outDir": "dist", // The directory for the JavaScript files after compiling into JS.
+    "sourceMap": true //If true => it creates a standalone sourceMap file for the linking for minified and ugly code and original source code.
   }
 }
 ```
