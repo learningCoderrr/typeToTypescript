@@ -122,7 +122,15 @@ When compiling TypeScript into JavaScript, we can configure the `tsconfig.json` 
     "rootDir": "./src", // The directory containing all TS files.
     "outDir": "dist", // The directory for the JavaScript files after compiling into JS.
     "sourceMap": true //If true => it creates a standalone sourceMap file for the linking for minified and ugly code and original source code.
-  }
+  },
+  "include": [],
+  // A list of file names or folder paths (can use wildcards like *.ts)
+  // telling TypeScript WHICH files to compile/convert into working code.
+
+  "exclude": []
+  // A list of file names or folder paths (can use wildcards like *.ts)
+  // telling TypeScript WHICH files to SKIP — these won't be compiled
+  // or included in the final output.
 }
 ```
 
