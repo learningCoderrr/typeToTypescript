@@ -241,3 +241,42 @@ if (typeof value === "string") {
 | Runtime safety                | ❌ Risky            | ✅ Safe                   |
 
 **💡 Golden Rule:** Prefer `unknown` over `any` whenever possible — it gives you flexibility _without_ sacrificing safety.
+
+## 📦 Arrays in TypeScript
+
+TypeScript lets you define array types in **two ways** — both work the same, just different syntax styles.
+
+---
+
+### 1️⃣ Using Generics — `Array<Type>`
+
+```ts
+const lists: Array<number> = []; // ✅ only numbers allowed
+
+// Multiple types allowed using union (|)
+const lists: Array<number | string> = []; // ✅ numbers AND strings
+```
+
+---
+
+### 2️⃣ Using Shorthand — `Type[]`
+
+```ts
+const lists: number[] = []; // ✅ only numbers allowed
+
+// Multiple types allowed using union (|)
+const lists: (number | string)[] = []; // ✅ numbers AND strings
+```
+
+> ⚠️ **Note:** When mixing types with `[]` shorthand, wrap them in parentheses `()` — otherwise TypeScript misreads the union.
+
+---
+
+### 🆚 Quick Comparison
+
+| Style     | Syntax        | Example         |
+| --------- | ------------- | --------------- |
+| Generic   | `Array<Type>` | `Array<number>` |
+| Shorthand | `Type[]`      | `number[]`      |
+
+**💡 Tip:** Both are functionally identical — pick whichever is more readable for your team. The shorthand (`Type[]`) is more commonly used in everyday code.
