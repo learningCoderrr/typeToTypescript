@@ -192,3 +192,52 @@ Why? Because a source map can let anyone see your original code.
 3. DevTools reads this and rebuilds your original files right there in the Sources tab.
 
 **Result:** your real, readable source code is now visible to anyone —
+
+## `any` vs `unknown`
+
+### 🔓 `any` — No Safety Net
+
+The `any` type turns off TypeScript's type checking completely. A value can be a `number`, `string`, `object`, `array`, or anything else — and you can call **any method or property** on it, even if it doesn't exist. TypeScript won't warn you.
+
+```ts
+const value: any = 5;
+
+value.toUpperCase(); // ❌ No error shown in your IDE...
+// but it WILL crash at runtime! 💥
+```
+
+> ⚠️ **Danger:** `any` basically tells TypeScript "trust me, don't check this." That defeats the whole purpose of using TypeScript.
+
+---
+
+### 🔒 `unknown` — Safe Alternative
+
+The `unknown` type can also hold any value, **but** you can't use it directly. You must first **narrow down** the type (check what it actually is) before accessing its properties or methods.
+
+```ts
+const value: unknown = 5;
+
+// value.toUpperCase(); ❌ Error: Object is of type 'unknown'
+
+// ✅ Narrow it down first, then use it safely:
+if (typeof value === "string") {
+  console.log(value.toUpperCase());
+} else if (typeof value === "number") {
+  console.log(value.toFixed(2));
+}
+```
+
+> ✅ **Safe:** TypeScript forces you to check the type first, preventing runtime crashes.
+
+---
+
+### 🆚 Quick Comparison
+
+| Feature                       | `any`               | `unknown`                 |
+| ----------------------------- | ------------------- | ------------------------- |
+| Can hold any value            | ✅ Yes              | ✅ Yes                    |
+| Type checking                 | ❌ Disabled         | ✅ Enabled                |
+| Direct method/property access | ✅ Allowed (unsafe) | ❌ Blocked until narrowed |
+| Runtime safety                | ❌ Risky            | ✅ Safe                   |
+
+**💡 Golden Rule:** Prefer `unknown` over `any` whenever possible — it gives you flexibility _without_ sacrificing safety.
