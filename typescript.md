@@ -280,3 +280,42 @@ const lists: (number | string)[] = []; // ✅ numbers AND strings
 | Shorthand | `Type[]`      | `number[]`      |
 
 **💡 Tip:** Both are functionally identical — pick whichever is more readable for your team. The shorthand (`Type[]`) is more commonly used in everyday code.
+
+## 🎯 Tuples
+
+A tuple is basically an **array with fixed types at fixed positions**. Unlike a regular array (where every item can be the same type freely), a tuple **forces you to declare the exact type for each index** — 1st position must be this type, 2nd position must be that type, and so on.
+
+You can also **name each position** — similar to how you name properties in an `interface` or `type`.
+
+---
+
+### 🔹 Basic Tuple
+
+```ts
+const userInfo: [string, number] = ["Prabhu", 18];
+// index 0 → must be string
+// index 1 → must be number
+```
+
+---
+
+### 🔹 Named Tuple
+
+```ts
+const coordinate: [x: number, y: number] = [343.334, 232.3];
+// Just like naming properties in an interface/type,
+// but here it's for tuple positions — improves readability
+```
+
+---
+
+### 🆚 Array vs Tuple
+
+| Feature            | Array                   | Tuple                      |
+| ------------------ | ----------------------- | -------------------------- |
+| Length             | Flexible (any size)     | Fixed (exact size)         |
+| Type per index     | ❌ Same type throughout | ✅ Specific type per index |
+| Order matters      | ❌ No                   | ✅ Yes                     |
+| Can name positions | ❌ No                   | ✅ Yes                     |
+
+> 💡 **Tip:** Use tuples when the **position** of a value carries meaning — like `[x, y]` coordinates, or `[key, value]` pairs. Use arrays when you just have a list of similar items.
